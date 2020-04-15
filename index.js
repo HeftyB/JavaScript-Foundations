@@ -145,17 +145,18 @@ const variableInterestRate = (p, I, n) => {
     let monthlyInterestRate = I / 12
     let periods = n * 12
 
-    for (let i = I - 0.02; i <= I + 0.02; i + 0.005) {
+    for (let i = I - 0.02; i <= I + 0.02; i += 0.005) {
 
-        monthlyRate = principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1));
+        monthlyInterestRate = i / 12;
+        let monthlyRate = principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1));
 
+        monthlyRate = Math.round(monthlyRate);
 
-        console.log(i);
         console.log(`${Name}, with an interest rate of ${i}, your monthly rate is ${monthlyRate}`);
     }
 }
 
-console.log(variableInterestRate(200000, 0.040, 30));
+console.log(variableInterestRate(200000, 0.04, 30));
 
 
 
