@@ -151,8 +151,8 @@ const variableInterestRate = (p, I, n) => {
         let monthlyRate = principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1));
 
         monthlyRate = Math.round(monthlyRate);
-
-        console.log(`${Name}, with an interest rate of ${i}, your monthly rate is ${monthlyRate}`);
+        let varInt = i.toFixed(3);
+        console.log(`${Name}, with an interest rate of ${varInt}, your monthly rate is ${monthlyRate}`);
     }
 }
 
