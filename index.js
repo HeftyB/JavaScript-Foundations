@@ -69,8 +69,8 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 function mortgageCalculator (p, i, n) {
 
     let principal = p;
-    let monthlyInterestRate = i / 12
-    let periods = n * 12
+    let monthlyInterestRate = i / 12;
+    let periods = n * 12;
 
 
     monthlyRate = principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1));
@@ -92,7 +92,7 @@ Then, add control flow within your function such that IF creditScore is above 74
 function mortgageCalculator (p, i, n, c) {
 
     let principal = p;
-    let periods = n * 12
+    let periods = n * 12;
 
     if (c > 800) {
         
@@ -111,7 +111,7 @@ function mortgageCalculator (p, i, n, c) {
 
     }
 
-    let monthlyInterestRate = i / 12
+    let monthlyInterestRate = i / 12;
 
 
     let monthlyRate = principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1));
@@ -142,8 +142,8 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 const variableInterestRate = (p, I, n) => {
      
     let principal = p;
-    let monthlyInterestRate = I / 12
-    let periods = n * 12
+    let monthlyInterestRate = I / 12;
+    let periods = n * 12;
 
     for (let i = I - 0.02; i <= I + 0.02; i += 0.005) {
 
@@ -156,7 +156,7 @@ const variableInterestRate = (p, I, n) => {
     }
 }
 
-console.log(variableInterestRate(200000, 0.04, 30));
+variableInterestRate(200000, 0.04, 30);
 
 
 
@@ -167,10 +167,29 @@ console.log(variableInterestRate(200000, 0.04, 30));
 /*  🏡 Add  `Property Tax`, `Homeowner's insurance` and `HOA fees` as parameters in your function to calculate total monthly spending on housing */
 
 
+function monthlySpending (p, i, n, propTax, homeIns, hoaFees) {
+
+    let principal = p;
+    let monthlyInterestRate = i / 12;
+    let periods = n * 12;
+
+
+    monthlyRate = (principal * ((monthlyInterestRate * (Math.pow((1 + monthlyInterestRate ), periods))) / (Math.pow((1 + monthlyInterestRate), periods) - 1))) + propTax + homeIns + hoaFees;
+    
+    return monthlyRate;
+}
+    
+console.log(`${Name}, your estimated monthly spending is`, monthlySpending (200000, 0.05, 30, 250, 300, 100));
+
+
 /* 🏡 Build a calculator function that accepts `monthly payment` and `interest rate` and returns the maximum loan that a person could afford */
 
+// highly subjective, unable to do without defining what "afford" means to user.
 
 /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
 
+Name = prompt("What is your name?", "Default Name");
+
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
+
